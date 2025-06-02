@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auth Sync Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo"><img height="50px" src="logo.svg" alt=""></div>
+            <nav class="nav-menu">
+                <ul>
+                    <li class="li-item"><a class="dash" href="#"><img height="15px" src="./icons/menu.svg"
+                                alt="">Dashboard</a></li>
+                    <li class="li-item"><a href="#"><img height="18px" src="./icons/clock.svg" alt=""> TOTP</a></li>
+                    <li class="li-item"><a href="#"><img height="18px" src="./icons/lock.svg" alt="">Password</a></li>
+                    <li class="li-item"><a href="#"> <img height="18px" src="./icons/vault.svg" alt="">Vault</a></li>
+                    <li class="li-item"><a href="#"><img height="18px" src="./icons/trash.svg" alt=""> Trash</a></li>
+                    <li class="li-item"><a href="#"><img height="18px" src="./icons/settings.svg" alt="">Settings</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+
+                <div class="user-info">
+                    <div class="u-img">
+
+                    </div>
+                    <div class="u-info">
+                        <p>Andrew Doe</p>
+                        <p>user123@example.com</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="dashboard-title">
+                    <h1>Dashboard</h1>
+                    <p>Welcome Subash!</p>
+                </div>
+                <div class="header-actions">
+                    <button class="searchBtn"><img height="20px" src="./icons/search.svg" alt=""></button>
+                    <button class="select-btn"><img height="15px" src="./icons/clone.svg" alt="">
+                        <p class="select">Select</p>
+                    </button>
+                    <button class="add-btn">
+                        <p class="plus">+</p>
+                        Add
+                    </button>
+                </div>
+            </header>
+
+            <!-- TOTP Section -->
+
+            <section class="totp-section">
+                <h2 class="totp-head">TOTP</h2>
+                <div class="wrapper">
+                    <article class="totp-card">
+                        <div class="h-and-p">
+                            <h2>Google</h2>
+                            <p>example123@gmail.com</p>
+                        </div>
+                        <div class="code">132 546 <img height="20px" src="./icons/clone.svg" alt=""></div>
+                    </article>
+                    <article class="totp-card">
+                        <div class="h-and-p">
+                            <h2>Facebook</h2>
+                            <p>facebook123@gmail.com</p>
+                            <p class="shared-by">Shared by John</p>
+                        </div>
+                        <div class="code">132 546 <img height="20px" src="./icons/clone.svg" alt=""></div>
+                    </article>
+                    <article class="totp-card">
+                        <div class="h-and-p">
+                            <h2>Instagram</h2>
+                            <p>insta123@gmail.com</p>
+                        </div>
+                        <div class="code">132 546 <img height="20px" src="./icons/clone.svg" alt=""></div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Password and Vault Section -->
+            <section class="password-vault-section">
+                <!-- Password Section -->
+                <div class="password-section">
+                    <div class="section-header">
+                        <h2>Password</h2>
+                        <a href="#">View all</a>
+                    </div>
+                    <table class="password-table">
+                        <thead>
+                            <tr>
+                                <th> <input type="checkbox" />Items</th>
+                                <th>Owner</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" />
+                                    <span class="item-text">
+                                        🔐 Google<br />
+                                        <small>user123@example.com</small>
+                                    </span>
+                                </td>
+                                <td><span class="badge badge-me">Me</span></td>
+                                <td class="actions">📋 ⋮</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" checked />
+                                    <span class="item-text">💳 Bank 12</span>
+                                </td>
+                                <td><span class="badge badge-john">John</span></td>
+                                <td class="actions">⋮</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" checked />
+                                    <span class="item-text">
+                                        📝 Note title<br />
+                                        <small>Write description about anything you want...</small>
+                                    </span>
+                                </td>
+                                <td><span class="badge badge-sung">Sung</span></td>
+                                <td class="actions">⋮</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" checked />
+                                    <span class="item-text">🏦 Bank 23</span>
+                                </td>
+                                <td><span class="badge badge-celline">Celline</span></td>
+                                <td class="actions">⋮</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" />
+                                    <span class="item-text">
+                                        🌐 Facebook<br />
+                                        <small>user123@example.com</small>
+                                    </span>
+                                </td>
+                                <td><span class="badge badge-me">Me</span></td>
+                                <td class="actions">📋 ⋮</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+
+
+                </div>
+
+                <!-- Vault Section -->
+                <div class="vault-section">
+                    <h3 class="vault-heading">Vault</h3>
+                    <div class="vault-card">
+                        <div class="image">
+                            <img height="20px" src="./icons/clone.svg" alt="">
+                        </div>
+
+                        <div class="para">
+                            <p>Family (11)</p>
+                            <p>Netflix, Amazon Prime, etc.</p>
+                            <p class="shared-by"> <span>Shared by John</span></p>
+                        </div>
+                    </div>
+                    <div class="vault-card">
+                        <div class="image">
+                            <img height="20px" src="./icons/clone.svg" alt="">
+                        </div>
+                        <div class="para">
+                            <p>Office (21)</p>
+                            <p>Mobbin, Envato, ChatGPT, ...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</body>
+
+</html>
