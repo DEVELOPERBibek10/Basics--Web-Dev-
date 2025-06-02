@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+}
+
+#head,
+.footer {
+  height: 25vh;
+  background-color: #658e9c;
+  /* Here text-align: center; centers the inline content inside block level h1 tag which is the child element of header. It means it works only on children element. */
+  text-align: center;
+  /* text-decoration works on the content inside inline child element */
+  /* text-decoration: underline; */
+}
+
+.content {
+  height: 50vh;
+  background-color: #8cba80;
+  text-align: center;
+}
+
+.clickMe {
+  background-color: #658e9c;
+  outline: none;
+  border-radius: 30px;
+}
+
+#one {
+  font-weight: 100;
+  font-family: sans-serif;
+}
+/* #two {
+  font-weight: 300;
+}
+#three {
+  font-weight: 500;
+}
+#four {
+  font-weight: 700;
+} */
+
+#one {
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: capitalize;
+}

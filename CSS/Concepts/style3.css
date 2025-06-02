@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100px;
+  width: 100px;
+  /* background-color: aqua; */
+  border: 2px solid black;
+  margin: 10px;
+  display: inline-block;
+}
+
+#box1 {
+  position: static;
+  background-color: crimson;
+}
+
+#box2 {
+  position: relative;
+  /* Shifts relative to it-self or shifts from its border */
+  background-color: magenta;
+  top: 20px;
+}
+
+#box3 {
+  /* removed from the document flow and positioned relative to the closest non-static parent element */
+  /* position: absolute; */
+  position: sticky;
+  background-color: maroon;
+  top: 0;
+  margin-top: 100px;
+}
+
+#box4 {
+  background-color: aqua;
+  /* removed from the document flow and positioned relative to the browser or the document and is fixed on the document. */
+  position: fixed;
+  top: 0;
+}

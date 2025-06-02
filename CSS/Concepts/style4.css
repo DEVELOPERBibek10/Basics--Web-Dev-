@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  border: 4px solid black;
+  height: 100vh;
+  /* gap: 15px; */
+  /* Influences the cross-axis and main axis */
+  /* flex-direction: column; */
+  /* justify-content: center;
+  flex-wrap: wrap;
+  align-items: center; */
+  /* By default the align-content is set to space around */
+  align-content: start;
+}
+
+/*Each line has its own cross-axis and main axis. Justify-content and align-items will now work on each line's cross axis and main axis not the whole flex container's (main-axis(x-axis) and cross-axis(y-axis) default). */
+
+.boxes {
+  height: 150px;
+  width: 150px;
+  background-color: skyblue;
+  border: 2px solid black;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Applies on the flex-item not the flex-container. Defines the rate of shrinking of the flex-items */
+  flex-shrink: 1;
+  /* Applies on the flex-item not the flex-container. Defines the rate of growing (Adjusts the width or the height of the item accordingly in relation to horizontal or the vertical space) of the flex-items */
+  /* flex-grow: 1;
+  max-width: 200px; */
+  min-width: 100px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    flex-wrap: wrap;
+  }
+}
+
+/* #box1 {
+  flex-shrink: 2;
+  flex-grow: 2;
+} */
