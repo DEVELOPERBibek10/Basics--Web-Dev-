@@ -41,6 +41,7 @@ body {
   object-position: center;
   position: absolute;
   border-radius: 50%;
-  opacity: 1;
-  transition: all linear 0.3s;
+  opacity: 0;
+  transition: all linear 0.2s;
+  mix-blend-mode: difference;
 }
