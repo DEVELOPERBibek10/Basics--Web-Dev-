@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  border: 2px solid cornflowerblue;
+  display: grid;
+  gap: 15px;
+  height: 500px;
+  /* Helps to define the width of the items arraged in column */
+  grid-template-columns: 300px 300px 300px;
+  /* Helps to define the height of the items arraged in rows */
+  /* grid-template-rows: 120px 80px; */
+  /* sets the default height of the chid containers arranged in rows*/
+  /* grid-auto-rows: 100px; */
+  /* justify-content: center;
+  align-items: center;
+  align-content: center; */
+  grid-auto-columns: 300px;
+}
+
+.box {
+  border: 2px solid cyan;
+  padding: 15px;
+}
+
+#box-1 {
+  background-color: cornflowerblue;
+  /* align-self: center;
+  justify-self: start; */
+  /* grid-column: 1 / span 2; */
+  /* grid-row: 1 / span 4; */
+  grid-area: 2 / 3 / span 1 / span 2;
+}
