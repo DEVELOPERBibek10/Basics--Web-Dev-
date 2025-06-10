@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --background: #101114;
+  --primary-color: #1c1d20;
+  --secondary-color: #4a4d57;
+  --accent-color: #00ffc4;
+  --text-color: #f9f9f9;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 16pt;
+  color: var(--text-color);
+}
+
+body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+  align-items: center;
+}
+
+h1 {
+  margin-top: 100px;
+  margin-bottom: 20px;
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--accent-color);
+}
+
+.wrapper {
+  width: 700px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#input-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.filters {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 20px;
+}
+
+form {
+  width: 100%;
+  position: relative;
+}
+
+#todo-input {
+  padding: 12px 20px;
+  width: 100%;
+  background: none;
+  border: 2px solid var(--secondary-color);
+  border-radius: 1000px;
+  font: inherit;
+  color: var(--text-color);
+  caret-color: var(--accent-color);
+}
+
+#todo-input:focus {
+  outline: none;
+}
+
+#add {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--accent-color);
+  height: 100%;
+  padding: 0 30px;
+  border: none;
+  border-radius: 1000px;
+  font: inherit;
+  color: var(--background);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.fil-btn {
+  padding: 8px 30px;
+  border-radius: 1000px;
+  border: none;
+  transition: all ease-in-out 0.4s;
+  color: var(--text-color);
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 13pt;
+  cursor: pointer;
+}
+
+.fil-btn.active {
+  background-color: var(--accent-color);
+  color: var(--background);
+}
+
+#todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.todo {
+  margin-bottom: 10px;
+  padding: 0 16px;
+  background-color: var(--primary-color);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.todo-text {
+  padding: 15px;
+  padding-right: 0;
+  flex-grow: 1;
+  transition: 300ms ease;
+}
+
+.edit-btn svg,
+.save svg {
+  transition: 300ms ease;
+}
+.delete-btn svg,
+.cancel svg {
+  transition: 300ms ease;
+}
+
+.delete-btn:hover svg,
+.cancel svg:hover {
+  fill: #ff0033;
+}
+.edit-btn:hover svg,
+.save svg:hover {
+  fill: var(--accent-color);
+}
+
+.btn.save,
+.btn.cancel {
+  display: none;
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.btn {
+  background: none;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.custom-checkbox {
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  min-height: 20px;
+  min-width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  transition: 300ms ease;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked ~ .custom-checkbox {
+  background-color: var(--accent-color);
+}
+
+input[type="checkbox"]:checked ~ .custom-checkbox svg {
+  fill: var(--primary-color);
+}
+
+input[type="checkbox"]:checked ~ .todo-text {
+  text-decoration: line-through;
+  color: var(--secondary-color);
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 12pt;
+  }
+
+  #add {
+    position: unset;
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    height: auto;
+  }
+
+  h1 {
+    margin-top: 50px;
+    font-size: 14vw;
+  }
+
+  .filters {
+    gap: 10px;
+  }
+
+  h3 {
+    font-weight: 500;
+    margin-top: 10px;
+    justify-content: center;
+    font-size: 13pt;
+  }
+
+  .fil-btn {
+    padding: 8px 15px;
+    font-size: 12pt;
+  }
+
+  .todo-text {
+    white-space: nowrap;
+    font-size: 11pt;
+  }
+}
