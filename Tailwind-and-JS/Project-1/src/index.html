@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+        integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./output.css">
+    <title></title>
+</head>
+
+<body>
+    <nav class="flex bg-white p-3 justify-between items-center">
+        <a href="#" class="flex items-center gap-2">
+            <img src="../assets/asset 0.png" alt="" class="object-cover max-w-12 max-h-12">
+            <span class="text-lg font-medium font-[Poppins]">ToDesktop</span>
+        </a>
+        <div id="nav-menu" class="hidden lg:flex gap-12">
+            <a href="" class="font-medium hover:text-[#3238F2]">Pricing</a>
+            <a href="" class="font-medium hover:text-[#3238F2]">Docs</a>
+            <a href="" class="font-medium hover:text-[#3238F2]">Changelog</a>
+            <a href="" class="font-medium hover:text-[#3238F2]">Blogs</a>
+            <a href="" class="font-medium hover:text-[#3238F2]">Login</a>
+        </div>
+        <button class="hidden lg:flex items-center gap-3 border border-gray-300 px-6 py-2 rounded-lg cursor-pointer">
+            <img src="../assets/asset 1.svg" alt="">
+            <span>Electron Developers</span>
+            <i class="ri-arrow-right-line"></i>
+        </button>
+        <button id="menu" class="p-2 lg:hidden">
+            <i class="menu ri-menu-line text-2xl text-gray-600 cursor-pointer"></i>
+        </button>
+        <div id="navDialog" class="fixed hidden z-10 inset-0 bg-white p-3 lg:hidden">
+            <div id="nav-bar" class="flex justify-between">
+                <a href="#" class="flex items-center gap-2">
+                    <img src="../assets/asset 0.png" alt="" class="object-cover max-w-12 max-h-12">
+                    <span class="text-lg font-medium font-[Poppins]">ToDesktop</span>
+                </a>
+                <button id="close" class="p-2 cursor-pointer lg:hidden">
+                    <i class="ri-close-large-line text-lg text-gray-600 cursor-pointer"></i>
+                </button>
+            </div>
+            <div class="mt-7">
+                <a href="" class="font-medium block p-3 m-3 hover:bg-gray-100 rounded-lg">Pricing</a>
+                <a href="" class="font-medium block hover:bg-gray-100 rounded-lg p-3 m-3">Docs</a>
+                <a href="" class="font-medium block hover:bg-gray-100 rounded-lg p-3 m-3">Changelog</a>
+                <a href="" class="font-medium block hover:bg-gray-100 rounded-lg p-3 m-3">Blogs</a>
+                <a href="" class="font-medium block hover:bg-gray-100 rounded-lg p-3 m-3">Login</a>
+            </div>
+            <div class="h-[1px] bg-gray-300"></div>
+            <button class="mt-6 flex items-center gap-3 px-6 py-4 rounded-lg cursor-pointer w-full hover:bg-gray-100">
+                <img src="../assets/asset 1.svg" alt="">
+                <span>Electron Developers</span>
+            </button>
+        </div>
+    </nav>
+</body>
+<script src="./script.js"></script>
+
+</html>
