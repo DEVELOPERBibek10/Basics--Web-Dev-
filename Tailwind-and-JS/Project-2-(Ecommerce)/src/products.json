@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "ACER Aspire 5 A515-58P-55NF 16GB/512GB – i5-1335U – Intel Iris Xe Graphics – 15.6 Inch FHD",
+    "stock": 40,
+    "price": "89999",
+    "src": "../assets/Products/Acer-Aspire-5-2022-Display.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Acer TravelMate P2 14 Intel Core 5 120U, 8GB RAM, 512GB SSD, 14″ WUXGA",
+    "stock": 25,
+    "price": "99999",
+    "src": "../assets/Products/Acer-TravelMate-P2-2024-2.webp"
+  },
+  {
+    "id": 3,
+    "name": "ASUS VivoBook 16 2023 Intel Core i5-13420H 16 inch FHD Display, 8GB RAM, 512GB SSD",
+    "stock": 45,
+    "price": "79999",
+    "src": "../assets/Products/Asus-Vivobook-16-Price-in-Nepal.webp"
+  },
+  {
+    "id": 4,
+    "name": "ASUS VivoBook Flip S 14 2023 i9‑13900H Intel Iris Xe Graphics 14 inch Touch, 16GB RAM, 1TB SSD",
+    "stock": 25,
+    "price": "162999",
+    "src": "../assets/Products/ASUS-VivoBook-Flip-S-14-2023.webp"
+  },
+  {
+    "id": 5,
+    "name": "Asus VivoBook S Copilot + PC Q423SA-U5512 (Core Ultra 5 226V, Intel Arc Graphics)| 16GB/256GB",
+    "stock": 30,
+    "price": "111999",
+    "src": "../assets/Products/Asus-VivoBook-S-Copilot-PC-Q423SA-U5512-Core-Ultra-5-226V-Price-in-Nepal.webp"
+  },
+  {
+    "id": 6,
+    "name": "ASUS Zenbook 14 OLED Ultra 7 255H | Intel Arc Graphics, 14 inch 3K OLED 120Hz, 16GB RAM, 512GB SSD",
+    "stock": 40,
+    "price": "192999",
+    "src": "../assets/Products/Asus-Zenbook-14-OLED-Ryzen-7-8840HS-side-view.webp"
+  },
+  {
+    "id": 7,
+    "name": "Dell Inspiron 16 5635 2023 (AMD Ryzen 7 7730U | AMD Radeon) 16″ FHD+ Display, 16GB RAM, 512GB SSD, 1 Year Warranty",
+    "stock": 40,
+    "price": "89999",
+    "src": "../assets/Products/dell-inspiron-16-5635-2023-2.webp"
+  },
+  {
+    "id": 8,
+    "name": "Dell Vostro 3530 (Intel Core i7 1355U | Intel Iris/UHD), 8GB RAM, 512GB SSD, 15.6 FHD IPS Display",
+    "stock": 40,
+    "price": "99999",
+    "src": "../assets/Products/dell-vostro-3530-2.webp"
+  },
+  {
+    "id": 9,
+    "name": "Lenovo IdeaPad Slim 3i 2023 13th Gen i5-13420H, Intel UHD, 8GB/16GB, 512GB, 15.6 FHD",
+    "stock": 40,
+    "price": "79999",
+    "src": "../assets/Products/Lenovo-IdeaPad-Slim-3i-.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Lenovo IdeaPad 1 15AMN7 (AMD Ryzen 5 7520U | AMD Radeon 610M) | 8GB RAM, 512GB SSD, 15.6 FHD IPS Display",
+    "stock": 40,
+    "price": "55999",
+    "src": "../assets/Products/lenovo-ideapad-1-15amn7-amd-ryzen-5-2.webp"
+  },
+  {
+    "id": 11,
+    "name": "Lenovo IdeaPad Slim 3 (Intel Core 5-120U | Intel Graphics) |  8GB RAM, 512GB SSD, 15.6 FHD",
+    "stock": 40,
+    "price": "74999",
+    "src": "../assets/Products/Lenovo-IdeaPad-Slim-3-15ABR8.webp"
+  },
+  {
+    "id": 12,
+    "name": "Lenovo LOQ 15 (Intel Core i5-12450H; RTX 2050, 8C/12T, up to 4.4 GHz)) | 16GB RAM, 512GB SSD, 15.6 FHD",
+    "stock": 40,
+    "price": "79999",
+    "src": "../assets/Products/lenovo-loq-15-2024-2.webp"
+  }
+]
