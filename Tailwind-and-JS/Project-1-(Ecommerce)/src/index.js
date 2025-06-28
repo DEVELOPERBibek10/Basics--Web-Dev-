@@ -5,6 +5,7 @@ const homeBody = document.querySelector("body");
 const themeBtn = document.querySelector("#theme");
 let themeStored = localStorage.getItem("theme");
 let toastContainer = document.querySelector("#toast-container");
+const companiesScroll = document.querySelector("#companies-list");
 
 if (themeStored === "dark") {
   themeBtn.querySelector(".ri-sun-fill").classList.remove("hidden");
@@ -178,3 +179,22 @@ newArrivals.querySelectorAll(".cards").forEach(function (card) {
     addToCartState(card, event);
   });
 });
+
+function setIntersectionObserver(element, speed) {
+  const observer = new IntersectionObserver(function (entries) {
+    const checkInsection = entries[0].isIntersecting;
+    if (checkInsection) {
+      document.addEventListener("scroll", handelScroll);
+    } else {
+      document.removeEventListener("scroll", handelScroll);
+    }
+  });
+  observer.observe(element);
+  function handelScroll() {
+    const translateX =
+      (window.innerHeight - element.getBoundingClientRect().top) * speed;
+    element.style.transform = `translateX(${translateX}px)`;
+  }
+}
+
+setIntersectionObserver(companiesScroll, 0.9);
