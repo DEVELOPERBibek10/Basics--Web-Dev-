@@ -60,18 +60,26 @@ function updateQuantity(card, event) {
   if (event.target.id === "increment") {
     shopData.forEach(function (product) {
       if (product.id === Number(card.id) && product.quantity < product.stock) {
-        product.quantity++;
-        card.querySelector("#order-quantity").textContent = product.quantity;
-        updateCartQuantity();
+        let quantity = Number(
+          card.querySelector("#order-quantity").textContent
+        );
+        quantity++;
+        if (quantity <= product.stock) {
+          card.querySelector("#order-quantity").textContent = quantity;
+        }
       }
     });
     localStorage.setItem("Products", JSON.stringify(shopData));
   } else if (event.target.id === "decrement") {
     shopData.forEach(function (product) {
       if (product.id === Number(card.id) && product.quantity > 1) {
-        product.quantity--;
-        card.querySelector("#order-quantity").textContent = product.quantity;
-        updateCartQuantity();
+        let quantity = Number(
+          card.querySelector("#order-quantity").textContent
+        );
+        quantity--;
+        if (quantity >= 1) {
+          card.querySelector("#order-quantity").textContent = quantity;
+        }
       }
     });
     localStorage.setItem("Products", JSON.stringify(shopData));
@@ -81,7 +89,7 @@ function updateQuantity(card, event) {
 function timeOutfunction() {
   setTimeout(function () {
     toastContainer.innerHTML = "";
-  }, 5000);
+  }, 6000);
 }
 
 function addToCartState(card, event) {
@@ -89,7 +97,9 @@ function addToCartState(card, event) {
     shopData.forEach(function (product) {
       if (Number(card.id) === product.id && !product.inCart) {
         product.inCart = true;
-        updateCartQuantity();
+        product.quantity = Number(
+          card.querySelector("#order-quantity").textContent
+        );
         toastContainer.innerHTML += `
         <div id="toast-success"
                 class="flex items-center w-full transition duration-300 max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow-sm dark:text-gray-400 dark:bg-gray-800"
@@ -105,6 +115,7 @@ function addToCartState(card, event) {
                 </div>
                 <div class="ms-3 text-sm font-normal">Product with Id ${product.id} added sucessfully</div> 
             </div>`;
+        updateCartQuantity();
         timeOutfunction();
       } else if (Number(card.id) === product.id && product.inCart) {
         toastContainer.innerHTML += ` <div id="toast-warning"
@@ -121,6 +132,10 @@ function addToCartState(card, event) {
                 </div>
                 <div class="ms-3 text-sm font-normal">Product with ID ${product.id} is already in the cart.</div>
             </div>`;
+        product.quantity = Number(
+          card.querySelector("#order-quantity").textContent
+        );
+        updateCartQuantity();
         timeOutfunction();
       }
     });

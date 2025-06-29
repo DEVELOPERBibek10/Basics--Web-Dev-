@@ -9,6 +9,9 @@ const cartCardWrapper = document.querySelector("#cart-card-wrapper");
 const proceedToCheckout = document.querySelector("#proceedToCheckout");
 let modal = document.getElementById("modal");
 let openModalBtn = document.getElementById("openModal");
+const menuBar = document.querySelector("#menu");
+const close = document.querySelector("#close");
+
 let closeModalBtns = [
   document.getElementById("closeIcon"),
   document.getElementById("closeButton"),
@@ -23,6 +26,13 @@ if (theme === "dark") {
   themeBtn.querySelector(".ri-moon-fill").classList.remove("hidden");
   cartBody.classList.remove("dark");
 }
+
+menuBar.addEventListener("click", function () {
+  navDialog.classList.remove("hidden");
+});
+close.addEventListener("click", function () {
+  navDialog.classList.add("hidden");
+});
 
 themeBtn.addEventListener("click", function (event) {
   if (event.target.classList.contains("ri-moon-fill")) {

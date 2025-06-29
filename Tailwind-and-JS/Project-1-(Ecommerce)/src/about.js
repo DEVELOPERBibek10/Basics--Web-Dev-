@@ -4,6 +4,7 @@ const menuBar = document.querySelector("#menu");
 const close = document.querySelector("#close");
 const navDialog = document.querySelector("#navDialog");
 const aboutBody = document.querySelector("body");
+const companiesScroll = document.querySelector("#companies-list");
 
 if (themeStored === "dark") {
   themeBtn.querySelector(".ri-sun-fill").classList.remove("hidden");
@@ -35,3 +36,22 @@ themeBtn.addEventListener("click", function (event) {
     aboutBody.classList.remove("dark");
   }
 });
+
+function setIntersectionObserver(element, speed) {
+  const observer = new IntersectionObserver(function (entries) {
+    const checkIntersection = entries[0].isIntersecting;
+    if (checkIntersection) {
+      document.addEventListener("scroll", handelScroll);
+    } else {
+      document.removeEventListener("scroll", handelScroll);
+    }
+  });
+  observer.observe(element);
+  function handelScroll() {
+    const translateX =
+      (window.innerHeight - element.getBoundingClientRect().top) * speed;
+    element.style.transform = `translateX(${translateX}px)`;
+  }
+}
+
+setIntersectionObserver(companiesScroll, 0.8);
