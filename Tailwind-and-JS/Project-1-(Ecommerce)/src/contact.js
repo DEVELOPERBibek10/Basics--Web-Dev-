@@ -1,0 +1,76 @@
+let themeStored = localStorage.getItem("theme");
+const themeBtn = document.querySelector("#theme");
+const menuBar = document.querySelector("#menu");
+const close = document.querySelector("#close");
+const navDialog = document.querySelector("#navDialog");
+const contactBody = document.querySelector("body");
+const emailContainer = document.getElementById("email-container");
+const submit = document.getElementById("submit");
+
+if (themeStored === "dark") {
+  themeBtn.querySelector(".ri-sun-fill").classList.remove("hidden");
+  themeBtn.querySelector(".ri-moon-fill").classList.add("hidden");
+  contactBody.classList.add("dark");
+} else {
+  themeBtn.querySelector(".ri-sun-fill").classList.add("hidden");
+  themeBtn.querySelector(".ri-moon-fill").classList.remove("hidden");
+  contactBody.classList.remove("dark");
+}
+
+menuBar.addEventListener("click", function () {
+  navDialog.classList.remove("hidden");
+});
+close.addEventListener("click", function () {
+  navDialog.classList.add("hidden");
+});
+
+themeBtn.addEventListener("click", function (event) {
+  if (event.target.classList.contains("ri-moon-fill")) {
+    event.target.classList.add("hidden");
+    event.target.nextElementSibling.classList.remove("hidden");
+    localStorage.setItem("theme", "dark");
+    contactBody.classList.add("dark");
+  } else if (event.target.classList.contains("ri-sun-fill")) {
+    event.target.classList.add("hidden");
+    event.target.previousElementSibling.classList.remove("hidden");
+    localStorage.setItem("theme", "");
+    contactBody.classList.remove("dark");
+  }
+});
+
+function checkEmail() {
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const emailInput = emailContainer.querySelector("#email");
+  const invalidContainer = emailContainer.querySelector("#invalid");
+  if (!regex.test(emailInput.value) || !emailInput.value) {
+    invalidContainer.classList.remove("hidden");
+    return false;
+  } else {
+    invalidContainer.classList.add("hidden");
+    return true;
+  }
+}
+
+function clearMessage() {
+  let message = document.querySelector("#message");
+  setTimeout(function () {
+    message.textContent = "";
+  }, 3000);
+}
+
+emailContainer.querySelector("#email").addEventListener("keyup", checkEmail);
+submit.addEventListener("click", function () {
+  let message = document.querySelector("#message");
+  const form = document.querySelector("form");
+  let isEmailValid = checkEmail();
+  if (isEmailValid) {
+    message.style.color = "green";
+    message.textContent = "Submission sucessful";
+    form.reset();
+    clearMessage();
+  } else {
+    message.style.color = "red";
+    message.textContent = "Please re-check email field";
+    clearMessage();
+  }
+});

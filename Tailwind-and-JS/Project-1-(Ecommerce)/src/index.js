@@ -213,4 +213,4 @@ function setIntersectionObserver(element, speed) {
   }
 }
 
-setIntersectionObserver(companiesScroll, 0.65);
+setIntersectionObserver(companiesScroll, 0.4);
