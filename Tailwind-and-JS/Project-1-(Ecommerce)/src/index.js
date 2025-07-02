@@ -7,6 +7,12 @@ let themeStored = localStorage.getItem("theme");
 let toastContainer = document.querySelector("#toast-container");
 const companiesScroll = document.querySelector("#companies-list");
 
+let prodData = JSON.parse(localStorage.getItem("Products"));
+
+let documentFragment = document.querySelector("#template-card");
+let featuredProdContainer = document.querySelector("#f-card-wrapper");
+let newArrivals = document.querySelector("#n-card-wrapper");
+
 if (themeStored === "dark") {
   themeBtn.querySelector(".ri-sun-fill").classList.remove("hidden");
   themeBtn.querySelector(".ri-moon-fill").classList.add("hidden");
@@ -38,12 +44,45 @@ themeBtn.addEventListener("click", function (event) {
   }
 });
 
-let documentFragment = document.querySelector("#template-card");
-let featuredProdContainer = document.querySelector("#f-card-wrapper");
-let newArrivals = document.querySelector("#n-card-wrapper");
+function renderCards(cardData) {
+  featuredProdContainer.innerHTML = "";
+  newArrivals.innerHTML = "";
+  cardData.forEach(function (item, idx) {
+    let card = document.importNode(documentFragment.content, true);
+    if (idx < 3) {
+      homeCards(card, item);
+      featuredProdContainer.appendChild(card);
+    }
+    if (idx >= 3 && idx < 6) {
+      homeCards(card, item);
+      newArrivals.appendChild(card);
+    }
+  });
+  featuredProdContainer.querySelectorAll(".cards").forEach(function (card) {
+    card.querySelector("#inc-dec").addEventListener("click", function (event) {
+      updateQuantity(card, event);
+    });
+    card
+      .querySelector("#addToCart")
+      .addEventListener("click", function (event) {
+        addToCartState(card, event);
+      });
+  });
+
+  newArrivals.querySelectorAll(".cards").forEach(function (card) {
+    card.querySelector("#inc-dec").addEventListener("click", function (event) {
+      updateQuantity(card, event);
+    });
+    card
+      .querySelector("#addToCart")
+      .addEventListener("click", function (event) {
+        addToCartState(card, event);
+      });
+  });
+}
 
 if (!JSON.parse(localStorage.getItem("Products"))) {
-  fetch("products.json")
+  fetch("./products.json")
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
@@ -52,11 +91,11 @@ if (!JSON.parse(localStorage.getItem("Products"))) {
         element.inCart = false;
       });
       localStorage.setItem("Products", JSON.stringify(data));
+      renderCards(data);
     });
+} else {
+  renderCards(prodData);
 }
-
-let prodData = JSON.parse(localStorage.getItem("Products"));
-
 function homeCards(card, item) {
   card.querySelector(".cards").id = item.id;
   card.querySelector("#p-img").src = item.src;
@@ -66,18 +105,6 @@ function homeCards(card, item) {
   card.querySelector("#price").textContent = `NRS.${item.price}`;
   updateCartQuantity();
 }
-
-prodData.forEach(function (item, idx) {
-  let card = document.importNode(documentFragment.content, true);
-  if (idx < 3) {
-    homeCards(card, item);
-    featuredProdContainer.appendChild(card);
-  }
-  if (idx >= 3 && idx < 6) {
-    homeCards(card, item);
-    newArrivals.appendChild(card);
-  }
-});
 
 function updateQuantity(card, event) {
   if (event.target.id === "increment") {
@@ -177,24 +204,6 @@ function updateCartQuantity() {
 
   document.querySelector("#cart-quantity").textContent = totalInCart;
 }
-
-featuredProdContainer.querySelectorAll(".cards").forEach(function (card) {
-  card.querySelector("#inc-dec").addEventListener("click", function (event) {
-    updateQuantity(card, event);
-  });
-  card.querySelector("#addToCart").addEventListener("click", function (event) {
-    addToCartState(card, event);
-  });
-});
-
-newArrivals.querySelectorAll(".cards").forEach(function (card) {
-  card.querySelector("#inc-dec").addEventListener("click", function (event) {
-    updateQuantity(card, event);
-  });
-  card.querySelector("#addToCart").addEventListener("click", function (event) {
-    addToCartState(card, event);
-  });
-});
 
 function setIntersectionObserver(element, speed) {
   const observer = new IntersectionObserver(function (entries) {
