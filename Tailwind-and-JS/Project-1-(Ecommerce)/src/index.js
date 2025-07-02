@@ -44,10 +44,17 @@ themeBtn.addEventListener("click", function (event) {
   }
 });
 
-function renderCards(cardData) {
+function setProductsAndRender(data) {
+  prodData = data;
+  localStorage.setItem("Products", JSON.stringify(prodData));
+  renderCards(prodData);
+}
+
+function renderCards(prodData) {
   featuredProdContainer.innerHTML = "";
   newArrivals.innerHTML = "";
-  cardData.forEach(function (item, idx) {
+
+  prodData.forEach(function (item, idx) {
     let card = document.importNode(documentFragment.content, true);
     if (idx < 3) {
       homeCards(card, item);
@@ -58,6 +65,7 @@ function renderCards(cardData) {
       newArrivals.appendChild(card);
     }
   });
+
   featuredProdContainer.querySelectorAll(".cards").forEach(function (card) {
     card.querySelector("#inc-dec").addEventListener("click", function (event) {
       updateQuantity(card, event);
@@ -91,9 +99,10 @@ if (!JSON.parse(localStorage.getItem("Products"))) {
         element.inCart = false;
       });
       localStorage.setItem("Products", JSON.stringify(data));
-      renderCards(data);
+      setProductsAndRender(data);
     });
 } else {
+  prodData = JSON.parse(localStorage.getItem("Products"));
   renderCards(prodData);
 }
 function homeCards(card, item) {
