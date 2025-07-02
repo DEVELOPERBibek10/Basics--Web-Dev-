@@ -42,8 +42,11 @@ function checkEmail() {
   const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const emailInput = emailContainer.querySelector("#email");
   const invalidContainer = emailContainer.querySelector("#invalid");
-  if (!regex.test(emailInput.value) || !emailInput.value) {
+  if (!regex.test(emailInput.value)) {
     invalidContainer.classList.remove("hidden");
+    if (!emailInput.value) {
+      invalidContainer.classList.add("hidden");
+    }
     return false;
   } else {
     invalidContainer.classList.add("hidden");
@@ -51,11 +54,10 @@ function checkEmail() {
   }
 }
 
-function clearMessage() {
-  let message = document.querySelector("#message");
+function clearMessage(message) {
   setTimeout(function () {
     message.textContent = "";
-  }, 3000);
+  }, 5000);
 }
 
 emailContainer.querySelector("#email").addEventListener("keyup", checkEmail);
@@ -67,10 +69,10 @@ submit.addEventListener("click", function () {
     message.style.color = "green";
     message.textContent = "Submission sucessful";
     form.reset();
-    clearMessage();
+    clearMessage(message);
   } else {
     message.style.color = "red";
     message.textContent = "Please re-check email field";
-    clearMessage();
+    clearMessage(message);
   }
 });
