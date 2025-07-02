@@ -5,6 +5,7 @@ const close = document.querySelector("#close");
 const navDialog = document.querySelector("#navDialog");
 const aboutBody = document.querySelector("body");
 const companiesScroll = document.querySelector("#companies-list");
+let prodData = JSON.parse(localStorage.getItem("Products"));
 
 if (themeStored === "dark") {
   themeBtn.querySelector(".ri-sun-fill").classList.remove("hidden");
@@ -36,6 +37,20 @@ themeBtn.addEventListener("click", function (event) {
     aboutBody.classList.remove("dark");
   }
 });
+
+function updateCartQuantity() {
+  let inCart = prodData.filter(function (product) {
+    return product.inCart === true;
+  });
+
+  let totalInCart = inCart.reduce(function (total, product) {
+    return total + product.quantity;
+  }, 0);
+
+  document.querySelector("#cart-quantity").textContent = totalInCart;
+}
+
+updateCartQuantity();
 
 function setIntersectionObserver(element, speed) {
   const observer = new IntersectionObserver(function (entries) {

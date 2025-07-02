@@ -7,6 +7,8 @@ const contactBody = document.querySelector("body");
 const emailContainer = document.getElementById("email-container");
 const submit = document.getElementById("submit");
 
+let prodData = JSON.parse(localStorage.getItem("Products"));
+
 if (themeStored === "dark") {
   themeBtn.querySelector(".ri-sun-fill").classList.remove("hidden");
   themeBtn.querySelector(".ri-moon-fill").classList.add("hidden");
@@ -37,6 +39,20 @@ themeBtn.addEventListener("click", function (event) {
     contactBody.classList.remove("dark");
   }
 });
+
+function updateCartQuantity() {
+  let inCart = prodData.filter(function (product) {
+    return product.inCart === true;
+  });
+
+  let totalInCart = inCart.reduce(function (total, product) {
+    return total + product.quantity;
+  }, 0);
+
+  document.querySelector("#cart-quantity").textContent = totalInCart;
+}
+
+updateCartQuantity();
 
 function checkEmail() {
   const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
