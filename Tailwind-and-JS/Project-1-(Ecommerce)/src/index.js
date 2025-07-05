@@ -91,16 +91,23 @@ function renderCards(prodData) {
 
 if (!JSON.parse(localStorage.getItem("Products"))) {
   fetch("./products.json")
-    .then((res) => res.json())
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        let error = res.text();
+        throw new Error(error);
+      }
+    })
     .then((data) => {
-      console.log(data);
       data.forEach((element) => {
         element.quantity = 1;
         element.inCart = false;
       });
       localStorage.setItem("Products", JSON.stringify(data));
       setProductsAndRender(data);
-    });
+    })
+    .catch((error) => console.error(error.message));
 } else {
   prodData = JSON.parse(localStorage.getItem("Products"));
   renderCards(prodData);
