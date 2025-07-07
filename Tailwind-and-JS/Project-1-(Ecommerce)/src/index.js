@@ -6,6 +6,15 @@ const themeBtn = document.querySelector("#theme");
 let themeStored = localStorage.getItem("theme");
 let toastContainer = document.querySelector("#toast-container");
 const companiesScroll = document.querySelector("#companies-list");
+const chatToggler = document.querySelector("#chat-toggler");
+
+const chatClose = document.querySelector("#chat-close");
+const chatOpen = document.querySelector("#chat-icon");
+
+const chatBox = document.querySelector("#Chat-Box");
+
+const chatPopupHide = ["scale-[0.2]", "opacity-0", "pointer-events-none"];
+const iconHide = ["opacity-0", "pointer-events-none"];
 
 let prodData = JSON.parse(localStorage.getItem("Products"));
 
@@ -168,7 +177,7 @@ function addToCartState(card, event) {
         );
         toastContainer.innerHTML += `
         <div id="toast-success"
-                class="flex items-center w-full transition duration-300 max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow-sm dark:text-gray-400 dark:bg-gray-800"
+                class="flex relative z-50 items-center w-full transition duration-300 max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow-sm dark:text-gray-400 dark:bg-gray-800"
                 role="alert">
                 <div
                     class="inline-flex items-center justify-center shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
@@ -239,3 +248,28 @@ function setIntersectionObserver(element, speed) {
 }
 
 setIntersectionObserver(companiesScroll, 0.4);
+
+chatToggler.addEventListener("click", function (event) {
+  chatToggler.classList.add("rotate-360");
+  if (event.target.closest("#chat-close")) {
+    chatPopupHide.forEach(function (className) {
+      chatBox.classList.add(className);
+    });
+    chatClose.classList.add("rotate-90");
+    chatOpen.classList.remove("rotate-90");
+    iconHide.forEach(function (className) {
+      chatOpen.classList.remove(className);
+      chatClose.classList.add(className);
+    });
+    return;
+  }
+  chatPopupHide.forEach(function (className) {
+    chatBox.classList.remove(className);
+  });
+  iconHide.forEach(function (className) {
+    chatOpen.classList.add(className);
+    chatClose.classList.remove(className);
+  });
+  chatClose.classList.remove("rotate-90");
+  chatOpen.classList.add("rotate-90");
+});

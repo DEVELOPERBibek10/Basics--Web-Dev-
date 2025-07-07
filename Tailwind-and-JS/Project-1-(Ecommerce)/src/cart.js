@@ -12,6 +12,13 @@ let openModalBtn = document.getElementById("openModal");
 const menuBar = document.querySelector("#menu");
 const close = document.querySelector("#close");
 
+const chatBox = document.querySelector("#Chat-Box");
+const chatToggler = document.querySelector("#chat-toggler");
+const chatOpen = document.querySelector("#chat-icon");
+const chatClose = document.querySelector("#chat-close");
+const chatPopupHide = ["scale-[0.2]", "opacity-0", "pointer-events-none"];
+const iconHide = ["opacity-0", "pointer-events-none"];
+
 let closeModalBtns = [
   document.getElementById("closeIcon"),
   document.getElementById("closeButton"),
@@ -212,4 +219,29 @@ closeModalBtns.forEach((closeBtn) => {
     cartCardWrapper.innerHTML = "";
     modal.classList.add("hidden");
   });
+});
+
+chatToggler.addEventListener("click", function (event) {
+  chatToggler.classList.add("rotate-360");
+  if (event.target.closest("#chat-close")) {
+    chatPopupHide.forEach(function (className) {
+      chatBox.classList.add(className);
+    });
+    chatClose.classList.add("rotate-90");
+    chatOpen.classList.remove("rotate-90");
+    iconHide.forEach(function (className) {
+      chatOpen.classList.remove(className);
+      chatClose.classList.add(className);
+    });
+    return;
+  }
+  chatPopupHide.forEach(function (className) {
+    chatBox.classList.remove(className);
+  });
+  iconHide.forEach(function (className) {
+    chatOpen.classList.add(className);
+    chatClose.classList.remove(className);
+  });
+  chatClose.classList.remove("rotate-90");
+  chatOpen.classList.add("rotate-90");
 });
