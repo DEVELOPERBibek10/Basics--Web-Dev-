@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexical Scope and Closures</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+    }
+
+    body {
+        background: #000;
+        color: #fff;
+
+    }
+
+    #orange {
+        color: white;
+        background: orange;
+        border-radius: 6px;
+        border: none;
+        padding: 6px 4px 6px 4px;
+    }
+
+    #green {
+        color: white;
+        background: green;
+        border-radius: 6px;
+        border: none;
+        padding: 6px 4px 6px 4px;
+    }
+
+    #yellow {
+        color: white;
+        background: yellow;
+        border-radius: 6px;
+        border: none;
+        padding: 6px 4px 6px 4px;
+    }
+
+    #white {
+        color: black;
+        background: white;
+        border-radius: 6px;
+        border: none;
+        padding: 6px 4px 6px 4px;
+    }
+
+    #container {
+        padding-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        gap: 10px;
+        width: 100%;
+    }
+</style>
+
+<body>
+    <div id="container">
+        <button id="orange">Orange</button>
+        <button id="green">Green</button>
+        <button id="yellow">Yellow</button>
+        <button id="white">White</button>
+    </div>
+</body>
+<script>
+    // function outer() {
+    //     let username = "Bibek"
+    //     function inner() {
+    //         console.log(username)
+    //     }
+    //     inner()
+    // }
+    // outer()
+</script>
+<script>
+    function BgChanger(color) {
+        return function () {
+            document.body.style.backgroundColor = `${color}`
+        }
+    }
+
+    document.querySelector("#orange").addEventListener("click", BgChanger("orange"))
+
+</script>
+
+</html>
